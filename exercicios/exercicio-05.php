@@ -9,21 +9,32 @@
     <h1>Exercicio 05</h1>
 
     <?php
-        // $nota1 = 8;
-        // $nota2 = 7;
+        $alunos = ["João", "Igor", "Paula", "Maria", "claudia"];
+    ?>
 
-
+    <?php
         function calculo(float $nota1, float $nota2) {
             $media = ($nota1 + $nota2)/2;
             return $media;
         }
 
-       $situacao = calculo(8, 7)
-
-       
+       $situacao = calculo(7, 7)
     ?>
 
-    <p><?=$situacao?></p>
+    <?php 
+        function resultado($media){
+            if($media >= 7){?>
+            <b style="color:green">Aprovado!</b>
+    <?php
+            } else {?>
+              <b style="color:red">Reprovado!</b>
+    <?php          
+            }
+        }
+    ?>
+    <p>Nome do aluno: <?=$alunos[0]?></p>
+    <p>Media: <?=$situacao?></p>
+    <p>Situação: <?=resultado($situacao)?></p>
 
 </body>
 </html>
