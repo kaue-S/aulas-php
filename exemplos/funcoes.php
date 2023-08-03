@@ -22,11 +22,24 @@
 
     <section>
         <h3>Chamada da sub-rotina/procedimento</h3>
+
         <?=dadosAutor()?>
+
         <article>
             <h4>Outra chamada</h4>
             <?=dadosAutor()?>
         </article>
     </section>
+
+    <h2>Função com retorno de dados</h2>
+
+    <?php
+        function dadosCurso(){
+            return "Téc. informática para internet";
+        }
+    ?>
+
+    <p>estamos no curso de <?=dadosCurso()?></p>
+    <p><?=dadosCurso()?>é ministrado no Senac Penha.</p>
 </body>
 </html>
