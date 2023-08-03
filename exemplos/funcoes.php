@@ -102,5 +102,20 @@
     <p>Número 10: <?=verificaNegativo(10)?></p>
     <p>Número 10: <?=verificaNegativo(-10)?></p>
     <p>Número 50: <?=verificaNegativo(50)?></p>
+    <hr>
+
+    <h2>Função anônima (ou closure, lambda)</h2>
+
+    <?php 
+        $formataPreco = function(float $valor) {
+            // R$: 1.000,00
+            $precoFormatado = "R$: ".number_format($valor, 2, ",",".");
+            return $precoFormatado;
+        
+        };
+    ?>
+
+    <p><?=$formataPreco(1000)?></p>
+
 </body>
 </html>
