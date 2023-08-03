@@ -72,7 +72,8 @@
         if( soma(2, 3, 10) >= 10){ ?>
             <p>Kauê reprovado!</p>
     <?php } ?>
-
+    
+    <hr>
             
     <h3>Função com parâmetros opcionais</h3>
     <?php
@@ -84,5 +85,22 @@
     <p><?=saudacao("bom dia", "Melissa")?></p>
     <p><?=saudacao("bom dia", "Tanaka")?></p>
     <p><?=saudacao("boa tarde")?></p>
+    <hr>
+
+    <h2>Indução de tipos de dados</h2>
+    <?php
+        //indução de tipos deve ser feito nos parâmetros e no retorno da função.
+        function verificaNegativo(int $valor):string{
+            //Early return (é possivel omitir o else neste caso)
+            if($valor < 0){
+                return "é negativo";
+            }
+                return "Não é negativo";
+        }
+    ?>
+
+    <p>Número 10: <?=verificaNegativo(10)?></p>
+    <p>Número 10: <?=verificaNegativo(-10)?></p>
+    <p>Número 50: <?=verificaNegativo(50)?></p>
 </body>
 </html>
