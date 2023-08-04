@@ -16,6 +16,7 @@
 </head>
 <body>  
     <h1>Exercicio 05</h1>
+    
 
     <?php
         $alunos = ["João", "Igor", "Paula", "Maria", "claudia"];
