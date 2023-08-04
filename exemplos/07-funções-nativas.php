@@ -32,7 +32,28 @@
     <p><?=$fraseFeia?></p>
     <p><?=$fraseFiltrada?></p>
 
+    <h3>explode()</h3>
+    <?php
+        //Função que transforma uma string em um array
+        $linguagens = "HTML - CSS - JS - PHP";
+        $arrayLinguagens = explode(" - ", $linguagens);
+    ?>
+    <pre><?=var_dump($linguagens)?></pre>
+    <pre><?=var_dump($arrayLinguagens)?></pre>
+    <hr>
+
     <h2>numéricas</h2>
+    <h3>min, max</h3>
+    <?php
+        $valores = [10, 5, 50, 275];
+        $valorQualquer = 1259.75;
+    ?>
+    <p>Menor valor: <?=min($valores)?></p>
+    <p>maior valor: <?=max($valores)?></p>
+    <p>Arredondamento: <?=round($valorQualquer)?></p>
+    <hr>
+
+
     
     <h2>Arrais</h2>
 
