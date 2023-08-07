@@ -105,5 +105,28 @@
     <h2>Filtros</h2>
 
     <h2>Segurança</h2>
+
+    <h3>validação</h3>
+    <?php
+        $email = "tiago.com.br";
+        //
+    ?>
+    <pre>
+        <?=var_dump( filter_var($email, FILTER_VALIDATE_EMAIL))?>
+    </pre>
+
+    <h3>Sanitização</h3>
+    <?php
+        $ataque = "<script>
+            document.body.innerHTML = '<H1>Sou hacker:</H1>';
+        </script>";
+    //execução sem sanitização (script é valido)
+        // echo $ataque;
+    
+        $ataqueSanitizado = filter_var($ataque, FILTER_SANITIZE_SPECIAL_CHARS);
+
+        //execução com sanitização
+        echo "$ataqueSanitizado";
+    ?>
 </body>
 </html>
