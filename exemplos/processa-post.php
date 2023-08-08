@@ -4,52 +4,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PRocessamento POST</title>
+    <title>Processamento POST</title>
 </head>
 
 <body>
     <h1>Exemplo usando POST</h1>
     <hr>
-    <p>Recebetr e processar dados via <b>POST</b></p>
+    <p>Receber e processar dados via <b>POST</b></p>
 
    
     <?php
-    //Verificar se os campos: nome e email estão vazios
+    // Verificar se os campos: nome e email estão vazios
     if (empty($_POST["nome"]) || empty($_POST["email"])) {
     ?>
-        <p>Você deve preencher nome e -mail</p>
+        <p>Você deve preencher nome e e-mail</p>
         <p><a href="10-formulario.html">Voltar</a></p>
 
     <?php
-        } else {
+    } else {
         $nome = $_POST['nome'];
         $email = $_POST['email'];
         $idade = $_POST['idade'];
         $mensagem = $_POST['mensagem'];
-        /*se houver interesses (ou seja, foi selecionado pelo menos 1), guarde na variável o $_post["interesses"]. caso contrário, guarde na variável um array vazio */
-        $interesses = $_POST['interesses'];
 
+        // Se houver interesses (ou seja, foi selecionado pelo menos 1)
+        // guarde na variável $interesses. Caso contrário, guarde um array vazio.
+        if (isset($_POST['interesses']) && is_array($_POST['interesses'])) {
+            $interesses = $_POST['interesses'];
+        } else {
+            // Nenhum interesse foi marcado
+            $interesses = array();
+        }
+
+        // Verifica se nenhum interesse foi marcado
+        if (empty($interesses)) {?>
+            <p>Por favor, selecione pelo menos um interesse.</p>
+            <p><a href="10-formulario.html">Voltar</a></p>
+    <?php        
+        } else {
     ?>
-      <!-- <p>interesses: <?= implode (", ", $interesses) ?></p> -->
-
-        <h2>Dados</h2>
-
-        <ul>
-            <li>Nome: <?= $nome ?></li>
-            <li>E-mail: <?= $email ?></li>
-            <li>Idade: <?= $idade ?></li>
-            <li>interesses: <?= implode (", ", $interesses) ?></li>
-
-
-            <!--se a variavel mensagem NÃO estiver vazia, mostre o <li> com a mensagem -->
-            <?php if (!empty($mensagem)) { ?>
-                <li>Mensagem: <?= $mensagem ?></li>
-            <?php } ?>
-            
-        </ul>
-    <?php 
-
+            <h2>Dados</h2>
+            <ul>
+                <li>Nome: <?= $nome ?></li>
+                <li>E-mail: <?= $email ?></li>
+                <li>Idade: <?= $idade ?></li>
+                <li>Interesses: <?= implode(", ", $interesses) ?></li>
+            </ul>
+    <?php
+        }
     }
     ?>
+
 </body>
+
 </html>
