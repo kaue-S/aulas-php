@@ -32,13 +32,11 @@
         if (isset($_POST['interesses']) && is_array($_POST['interesses'])) {
             $interesses = $_POST['interesses'];
         } else {
-            // Nenhum interesse foi marcado
             $interesses = array();
         }
 
-        // Verifica se nenhum interesse foi marcado
         if (empty($interesses)) {?>
-            <p>Por favor, selecione pelo menos um interesse.</p>
+            <p style="color:red">Por favor, selecione pelo menos um interesse.</p>
             <p><a href="10-formulario.html">Voltar</a></p>
     <?php        
         } else {
