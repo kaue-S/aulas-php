@@ -19,17 +19,19 @@
     ?>
         <p>Você deve preencher nome e -mail</p>
         <p><a href="10-formulario.html">Voltar</a></p>
+
     <?php
-    } else {
+        } else {
         $nome = $_POST['nome'];
         $email = $_POST['email'];
         $idade = $_POST['idade'];
         $mensagem = $_POST['mensagem'];
         /*se houver interesses (ou seja, foi selecionado pelo menos 1), guarde na variável o $_post["interesses"]. caso contrário, guarde na variável um array vazio */
         $interesses = $_POST['interesses'];
-        
+
     ?>
-            
+      <!-- <p>interesses: <?= implode (", ", $interesses) ?></p> -->
+
         <h2>Dados</h2>
 
         <ul>
@@ -43,13 +45,11 @@
             <?php if (!empty($mensagem)) { ?>
                 <li>Mensagem: <?= $mensagem ?></li>
             <?php } ?>
+            
         </ul>
-    <?php
-    }
-    if (empty($_POST["interesses"])) {
+    <?php 
 
     }
     ?>
 </body>
-
 </html>
