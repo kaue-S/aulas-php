@@ -1,11 +1,4 @@
-<?php
-$titulos = [
-    'index.php' => 'Site de Exemplo', 
-    'duvidas.php' => 'Tire suas dúvidas',
-    'cursos.php' => 'Nossos cursos',
-    'contato.php' => 'Entre em contato'
-];
-?>
+
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -15,6 +8,15 @@ $titulos = [
     <link rel="stylesheet" href="css/style.css">
     
     <?php
+    $titulos = [
+        'index.php' => 'Site de Exemplo - PHP', 
+        'duvidas.php' => 'Tire suas dúvidas',
+        'cursos.php' => 'Nossos cursos',
+        'contato.php' => 'Entre em contato'
+    ];
+    ?>
+
+    <?php
     $paginaAtual = basename($_SERVER['PHP_SELF']);
     
     foreach ($titulos as $pagina => $titulo) {
@@ -23,6 +25,7 @@ $titulos = [
         }
     }
     ?>
+    
 </head>
 <body>
     <header>
