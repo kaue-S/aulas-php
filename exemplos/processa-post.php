@@ -11,12 +11,18 @@
     <p>Recebetr e processar dados via <b>POST</b></p>
 
     <?php
-        //capturando os dados transmitidos
-        $nome = $_POST['nome'];
-        $email = $_POST['email'];
-        $mensagem = $_POST['mensagem'];
-
+        //Verificar se os campos: nome e email estão vazios
+        if( empty($_POST["nome"]) || empty($_POST["email"]) ){
     ?>
+            <p>Você deve preencher nome e -mail</p>
+            <p><a href="10-formulario.html">Voltar</a></p>
+    <?php
+        } else {
+            $nome = $_POST['nome'];
+            $email = $_POST['email'];
+            $mensagem = $_POST['mensagem'];
+    ?>        
+    
     <h2>Dados</h2>
 
     <ul>
@@ -24,5 +30,8 @@
         <li>E-mail: <?=$email?></li>
         <li>Mensagem: <?=$mensagem?></li>
     </ul>
+    <?php
+     }
+     ?>
 </body>
 </html>
