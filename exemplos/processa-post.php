@@ -22,17 +22,17 @@
 
     <?php
     } else {
-        $nome = $_POST['nome'];
-        $email = $_POST['email'];
-        $idade = $_POST['idade'];
-        $mensagem = $_POST['mensagem'];
+        $nome = filter_var ($_POST['nome'], FILTER_SANITIZE_SPECIAL_CHARS);
+        $email = filter_var ($_POST['email'], FILTER_SANITIZE_EMAIL);
+        $idade = filter_var ($_POST['idade'], FILTER_SANITIZE_NUMBER_INT);
+        $mensagem = filter_var ($_POST['mensagem'], FILTER_SANITIZE_SPECIAL_CHARS);
 
         // Se houver interesses (ou seja, foi selecionado pelo menos 1)
         // guarde na variável $interesses. Caso contrário, guarde um array vazio.
 
         if (isset($_POST['interesses'])) {
-            $interesses = $_POST['interesses'];
-        } else {
+            $interesses = filter_var_array($_POST['interesses']);
+        } else {    
             $interesses = array();
         }
 
