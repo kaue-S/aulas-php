@@ -10,14 +10,12 @@
     <hr>
     <?php
 
-    $carros = [
-        "volvo",
-        "Porsche",
-        "Mercedes",
-        "Audi",
-    ];
-
-    
+    //  $carros = [
+    //     "volvo",
+    //  "Porsche",
+    //     "Mercedes",
+    //     "Audi",
+    //  ];
 
     if ( empty($_POST["nome"]) || empty($_POST["preco"]) ) {?>
     <p>Por favor, preencha todos os campos</p>
@@ -27,23 +25,30 @@
     } else {
         $nome = filter_var($_POST['nome'], FILTER_SANITIZE_SPECIAL_CHARS);
         $marca = filter_var($_POST['carros'], FILTER_SANITIZE_SPECIAL_CHARS);
-        $preco =filter_var($_POST['preco'], FILTER_SANITIZE_NUMBER_FLOAT);
+        $preco = filter_var($_POST['preco'], FILTER_SANITIZE_NUMBER_FLOAT);
+        // $disponivel = filter_var($_POST['disponivel'], FILTER_SANITIZE_NUMBER_FLOAT);
+        $disponivel = isset($_POST['disponivel']) ? $_POST['disponivel'] : "";
         $mensagem =filter_var($_POST['mensagem'], FILTER_SANITIZE_SPECIAL_CHARS);
 
-        if(isset($_POST[$carros])){
-            
-        }
-    ?>
-    <h2>
+
+        if (empty($disponivel)) {?>
+            <p style="color:red">Por favor, selecione a disponibilidade.</p>
+            <p><a href="exercicio-07.html">Voltar</a></p>
+        <?php
+             }else{ 
+        ?>
+    <div>
         <ul>
-            <li>Nome do veiculo: <?= $carros ?></li>
+            <li>Nome do veiculo: <?= $nome ?></li>
             <li>Marca:<?= $marca ?> </li>
             <li>Preço: <?= $preco ?></li>
+            <li>Disponibilidade: <?=$disponivel?></li>
             <li>mensagem: <?= $mensagem ?></li>
         </ul>
-    </h2>
+    </div>
 <?php
     }   
+     }
 ?>
 
 </body>
