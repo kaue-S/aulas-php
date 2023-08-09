@@ -29,7 +29,8 @@
 
         // Se houver interesses (ou seja, foi selecionado pelo menos 1)
         // guarde na variável $interesses. Caso contrário, guarde um array vazio.
-        if (isset($_POST['interesses']) && is_array($_POST['interesses'])) {
+        
+        if (isset($_POST['interesses'])) {
             $interesses = $_POST['interesses'];
         } else {
             $interesses = array();
