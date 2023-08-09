@@ -29,7 +29,7 @@
 
         // Se houver interesses (ou seja, foi selecionado pelo menos 1)
         // guarde na variável $interesses. Caso contrário, guarde um array vazio.
-        
+
         if (isset($_POST['interesses'])) {
             $interesses = $_POST['interesses'];
         } else {
@@ -48,6 +48,7 @@
                 <li>E-mail: <?= $email ?></li>
                 <li>Idade: <?= $idade ?></li>
                 <li>Interesses: <?= implode(", ", $interesses) ?></li>
+                <li>Mensagem: <?=$mensagem?></li>
             </ul>
     <?php
         }
