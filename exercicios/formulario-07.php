@@ -1,4 +1,7 @@
 <?php
+/* Não entendi o motivo deste require... seria para carregar o array dos fabricantes?
+Se for por isso, não é uma boa estratégia pois você está carregando o arquivo inteiro.
+Poderia simplesmente criar o array aqui mesmo na página do formulário. */
     require "../exercicios/exercicio-07.php"
 ?>
 <!DOCTYPE html>
@@ -27,6 +30,7 @@
             <select class="form-select shadow" name="fabricante" id="fabricante">
                 <option></option>
                 <?php
+                /* Deu certo! */
                     foreach($fabricantes as $fabricante){?>
                         <option value="<?=$fabricante?>"><?=$fabricante?></option>
                 <?php            
@@ -37,6 +41,8 @@
 
         <p>
             <label class="form-label" class="mb-1 " for="preco">Preço:$</label><br>
+
+            <!-- Aqui faltou colocar atributo que permita usar casas decimais (centavos) no preço -->
             <input class="form-control shadow" placeholder="Preço" required type="number" name="preco" id="preco" min="100" max="10000">
         </p>    
         <div class=" justify-content-center">
