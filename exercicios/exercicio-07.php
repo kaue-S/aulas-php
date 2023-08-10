@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <title>Resultado</title>
 </head>
 <body>
@@ -25,14 +26,23 @@
             $mensagem = filter_var($_POST['mensagem'], FILTER_SANITIZE_SPECIAL_CHARS);
             
             ?>
-                <div>
-                    <h1>Resultado</h1>
-                    <ul>
-                        <li>Nome do veiculo: <b><?= $nome ?></b></li>
-                        <li>Fabricante: <b><?= $fabricante ?></b></li>
-                        <li>Preço: <b><?= number_format($preco, 2, ',', '.') ?></b> </li>
-                        <li>Disponibilidade: <b><?= $disponivel ?></b></li>
-                        <li>mensagem: <b><?= $mensagem ?></b> </li>
+                <div class="container w-25">
+                    
+                    <ul class="bg-info list-unstyled p-5 fs-3">
+                        <h1 class="pb-3 pt-0">Resultado</h1><hr>
+                        <li class="p-1">Nome do veiculo: <b class="text-sm-rigth"><?= $nome ?></b></li>
+                        <hr>
+                        <li class="p-1">Fabricante: <b><?= $fabricante ?></b></li>
+                        <hr>
+                        <li class="p-1">Preço: <b><?= number_format($preco, 2, ',', '.') ?></b> </li>
+                        <hr>
+                        <li class="p-1">Disponibilidade: <b><?= $disponivel ?></b></li>
+                        <hr>
+                        <li class="p-1">mensagem: <b><?= $mensagem ?></b> </li>
+                        <hr>
+                        <button class="btn btn-primary d-flex m-auto">
+                                <a class="list-unstyled" href="exercicio-07.html">Voltar</a>
+                        </button>
                     </ul>
                 </div>
     <?php

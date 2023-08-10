@@ -13,8 +13,9 @@
     <title>Exercicio 07</title>
 </head>
 <body>
-    <h1 class="text-sm-center bg-secondary p-lg-4">Cadastro de produtos</h1>
     
+<h1 class="text-sm-center bg-secondary p-lg-4">Cadastro de produtos</h1>
+
 <div class=" col-12 col-xl-3  d-flex m-auto fs-5">
     <form class=" container text-sm-left bg-info shadow py-3 rounded fs-4" action="exercicio-07.php" method="post">
         <p>
