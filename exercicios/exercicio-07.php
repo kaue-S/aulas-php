@@ -4,9 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-
-    </style>
 </head>
 <body>
     <h1>Recebendo os dados</h1>
@@ -39,8 +36,8 @@
         <ul>
             <li>Nome do veiculo: <?= $nome ?></li>
             <li>Marca:<?= $marca ?> </li>
-            <li>Preço: <?= $preco ?></li>
-            <li>Disponibilidade: <?=$disponivel?></li>
+            <li>Preço: <?= number_format($preco, 2, ',', '.') ?></li>
+            <li>Disponibilidade: <?= $disponivel ?></li>
             <li>mensagem: <?= $mensagem ?></li>
         </ul>
     </div>
@@ -48,6 +45,6 @@
     }   
      }
 ?>
-
+  </body>
 </body>
 </html>
