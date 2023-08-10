@@ -9,9 +9,7 @@
 <body>
     
     <?php
-    /* Nesta página, este array é desnecessário. */
     $fabricantes = ["Volvo", "Porsche", "Mercedes", "Ferrari"];
-    
     /* Interessante esta forma de detectar o acionamento do formulário.
     É uma maneira válida também. */
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -28,18 +26,12 @@
             /* Aqui no $preco, o ideal é sanitizar e usar mais outro filtro para permitir dígitos/casas
             decimais. */
             $preco = filter_var($_POST['preco'], FILTER_SANITIZE_NUMBER_FLOAT);
-        
-            /* Em vez de colocar "disponibilidade não escolhida", por que não fez lá embaixo
-            na lista simplesmente uma validação com if e empty? Assim nem precisaria mostrar o <li> caso
-            a variável $disponivel esteja vazia. */
-            $disponivel = isset($_POST['disponivel']) ? $_POST['disponivel'] : "Disponibilidade não escolhida";
-
             $mensagem = filter_var($_POST['mensagem'], FILTER_SANITIZE_SPECIAL_CHARS);
             
             ?>
                 <div class="container w-25">
                     
-                    <ul class="bg-info list-unstyled p-5 fs-3">
+                    <ul class="bg-ligth shadow mt-5 rounded list-unstyled p-5 fs-3">
                         <h1 class="pb-3 pt-0">Resultado</h1><hr>
                         <li class="p-1">Nome do veiculo: <b class="text-sm-rigth"><?= $nome ?></b></li>
                         <hr>
@@ -47,13 +39,18 @@
                         <hr>
                         <li class="p-1">Preço: <b><?= number_format($preco, 2, ',', '.') ?></b> </li>
                         <hr>
-                        <li class="p-1">Disponibilidade: <b><?= $disponivel ?></b></li>
+                        <?php
+                            if (isset($_POST['disponivel'])) {
+                                $disponivel = $_POST['disponivel'];?>
+                                <li class="p-1">Disponibilidade: <b> <?=$disponivel?> </b></li><hr>
+                                <?php
+                            } else {
+                                $disponivel = array();
+                            }
+                            ?>
+                        <li class="p-1">Mensagem: <b><?= $mensagem ?></b> </li>
                         <hr>
-                        <li class="p-1">mensagem: <b><?= $mensagem ?></b> </li>
-                        <hr>
-                        <button class="btn btn-primary d-flex m-auto">
-                                <a class="list-unstyled" href="exercicio-07.html">Voltar</a>
-                        </button>
+                        <button class="btn btn-primary d-flex m-auto"><a class="list-unstyled text-white text-decoration-none" href="formulario-07.php">Voltar</a></button>
                     </ul>
                 </div>
     <?php
