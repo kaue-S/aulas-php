@@ -8,8 +8,11 @@
 <body>
     
     <?php
+    /* Nesta página, este array é desnecessário. */
     $fabricantes = ["Volvo", "Porsche", "Mercedes", "Ferrari"];
     
+    /* Interessante esta forma de detectar o acionamento do formulário.
+    É uma maneira válida também. */
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
         if (empty($_POST["nome"]) || empty($_POST["preco"])) { ?>
             <p>Por favor, preencha todos os campos</p>
@@ -20,8 +23,16 @@
         } else {
             $nome = filter_var($_POST['nome'], FILTER_SANITIZE_SPECIAL_CHARS);
             $fabricante = filter_var($_POST['fabricante'], FILTER_SANITIZE_SPECIAL_CHARS);
+
+            /* Aqui no $preco, o ideal é sanitizar e usar mais outro filtro para permitir dígitos/casas
+            decimais. */
             $preco = filter_var($_POST['preco'], FILTER_SANITIZE_NUMBER_FLOAT);
+        
+            /* Em vez de colocar "disponibilidade não escolhida", por que não fez lá embaixo
+            na lista simplesmente uma validação com if e empty? Assim nem precisaria mostrar o <li> caso
+            a variável $disponivel esteja vazia. */
             $disponivel = isset($_POST['disponivel']) ? $_POST['disponivel'] : "Disponibilidade não escolhida";
+
             $mensagem = filter_var($_POST['mensagem'], FILTER_SANITIZE_SPECIAL_CHARS);
             
             ?>
