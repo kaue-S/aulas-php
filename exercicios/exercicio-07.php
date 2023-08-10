@@ -1,25 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Resultado</title>
 </head>
-
 <body>
-    <h1>Recebendo os dados</h1>
-    <hr>
+    
     <?php
     $fabricantes = ["Volvo", "Porsche", "Mercedes", "Ferrari"];
-
+    
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
         if (empty($_POST["nome"]) || empty($_POST["preco"])) { ?>
             <p>Por favor, preencha todos os campos</p>
             <p><a href="exercicio-07.html">Voltar</a></p>
-
+    
             <?php
-
+    
         } else {
             $nome = filter_var($_POST['nome'], FILTER_SANITIZE_SPECIAL_CHARS);
             $fabricante = filter_var($_POST['fabricante'], FILTER_SANITIZE_SPECIAL_CHARS);
@@ -29,12 +26,13 @@
             
             ?>
                 <div>
+                    <h1>Resultado</h1>
                     <ul>
-                        <li>Nome do veiculo: <?= $nome ?></li>
-                        <li>Fabricante:<?= $fabricante ?> </li>
-                        <li>Preço: <?= number_format($preco, 2, ',', '.') ?></li>
-                        <li>Disponibilidade: <?= $disponivel ?></li>
-                        <li>mensagem: <?= $mensagem ?></li>
+                        <li>Nome do veiculo: <b><?= $nome ?></b></li>
+                        <li>Fabricante: <b><?= $fabricante ?></b></li>
+                        <li>Preço: <b><?= number_format($preco, 2, ',', '.') ?></b> </li>
+                        <li>Disponibilidade: <b><?= $disponivel ?></b></li>
+                        <li>mensagem: <b><?= $mensagem ?></b> </li>
                     </ul>
                 </div>
     <?php
@@ -42,6 +40,4 @@
     }
     ?>
 </body>
-</body>
-
 </html>
