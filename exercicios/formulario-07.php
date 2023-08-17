@@ -22,11 +22,11 @@ Poderia simplesmente criar o array aqui mesmo na página do formulário. */
 <div class=" col-12 col-xl-3  d-flex m-auto fs-5">
     <form class=" container text-sm-left bg-info shadow py-3 rounded fs-4" action="exercicio-07.php" method="post">
         <p>
-            <label class="form-label" for="nome">Nome do veículo</label><br>
-            <input class="form-control shadow" placeholder="Nome do veículo" required type="text" name="nome" id="nome">
+            <label class="form-label" for="nome">Nome do produto</label><br>
+            <input class="form-control shadow" placeholder="Nome do produto" required type="text" name="nome" id="nome">
         </p>
         <p>
-            <label class="form-label" class="mb-1" for="fabricante">Escolha uma marca: </label><br>
+            <label class="form-label" class="mb-1" for="fabricante">Escolha uma fabricante: </label><br>
 
             <select class="form-select shadow" name="fabricante" id="fabricante">
                 <option></option>
